@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* You can add your core RA_technologies global colors here later */
+:root {
+  --tech-blue: #168fff;
+  --dark-blue: #0354a0;
+  --deep-black: #00062a;
+  --pure-white: #FFFFFF;
+  --off-white: #F8FAFC;
+}
