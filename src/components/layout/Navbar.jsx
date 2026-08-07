@@ -30,8 +30,8 @@ const Navbar = () => {
 
   return (
     <>
-      {/* 1. Main Top Navbar (Removed border-b border-blue-100) */}
-      <nav className="fixed top-0 left-0 right-0 z-[100] bg-blue-50 transition-all h-16">
+      {/* 1. Main Top Navbar (z-index increased to 110 to cover the drawer's top shadow) */}
+      <nav className="fixed top-0 left-0 right-0 z-[110] bg-blue-50 transition-all h-16">
         <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 h-full">
           <div className="flex items-center justify-between h-full">
             
@@ -132,7 +132,7 @@ const Navbar = () => {
               </Link>
 
               {/* Mobile Menu Toggle Icon */}
-              <div className="md:hidden flex items-center relative z-[101]">
+              <div className="md:hidden flex items-center relative z-[111]">
                 <button
                   onClick={() => setIsOpen(!isOpen)}
                   className="inline-flex items-center justify-center p-2 -mr-2 rounded-md text-slate-600 hover:text-[var(--deep-black)] hover:bg-blue-100/60 focus:outline-none transition-colors"
@@ -232,8 +232,8 @@ const Navbar = () => {
           
         </div>
 
-        {/* Action Buttons for Mobile (Now matches bg-blue-50) */}
-        <div className="p-5 border-t border-blue-200/60 bg-blue-50 space-y-3 pb-8 mt-auto">
+        {/* Action Buttons for Mobile (Removed the border-t class completely) */}
+        <div className="p-5 bg-blue-50 space-y-3 pb-8 mt-auto">
           <Link to="/login" onClick={() => setIsOpen(false)} className="flex items-center justify-center w-full bg-white border border-slate-300 text-slate-700 px-4 py-3 rounded-lg font-bold text-sm transition-colors shadow-sm hover:bg-slate-50">
             Login
           </Link>
