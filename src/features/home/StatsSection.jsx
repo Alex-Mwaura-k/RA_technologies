@@ -66,7 +66,7 @@ const AnimatedStat = ({ value }) => {
 
 const stats = [
   { label: 'Uptime SLA', value: '99.99%' },
-  { label: 'Transactions Processed', value: '10M+' },
+  { label: 'Transactions', value: '10M+' },
   { label: 'Engineers Trained', value: '500+' },
   { label: 'Active Deployments', value: '50+' },
 ];
@@ -182,7 +182,11 @@ const StatsSection = () => {
 
         <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent opacity-50 mb-12"></div>
 
-        <div className="flex flex-col sm:flex-row justify-between items-center w-full text-center gap-8 sm:gap-4">
+        {/* 
+          CHANGED: Replaced 'flex flex-col' with 'grid grid-cols-2 gap-y-10' for mobile.
+          On 'sm' breakpoints and up, it overrides the grid with 'sm:flex sm:flex-row' to maintain the desktop layout.
+        */}
+        <div className="grid grid-cols-2 gap-y-10 gap-x-4 sm:flex sm:flex-row sm:justify-between items-center w-full text-center sm:gap-4">
           {stats.map((stat, i) => (
             <div key={i} className="flex flex-col items-center">
               <span className="text-3xl sm:text-4xl font-extrabold text-[var(--tech-blue)] tracking-tight">
