@@ -45,14 +45,30 @@ const Hero = () => {
           <div className="flex flex-col justify-between h-full max-h-[580px] max-w-2xl py-2">
             
             <div className="flex flex-col items-start w-full">
-              <div className="flex items-center gap-3 mb-4 sm:mb-6">
-                <div className="flex -space-x-1.5">
-                  <div className="w-5 h-5 rounded-full bg-[#b2f042]"></div>
-                  <div className="w-5 h-5 rounded-r-full bg-[var(--deep-black)]"></div>
+              
+              {/* 
+                Top Banner - -mt-10 pushes the pill up, mb-10 perfectly compensates 
+                so the H1 below it DOES NOT move from its original position. 
+                Desktop values (sm:mt-0, sm:mb-6) remain unchanged.
+              */}
+              <div className="w-full flex justify-center sm:justify-start -mt-10 sm:mt-0 mb-10 sm:mb-6">
+                <div className="flex items-center gap-3">
+                  {/* Left Pill */}
+                  <div className="flex -space-x-1.5">
+                    <div className="w-5 h-5 rounded-full bg-[#b2f042]"></div>
+                    <div className="w-5 h-5 rounded-r-full bg-[var(--deep-black)]"></div>
+                  </div>
+                  
+                  <span className="font-bold text-slate-600 tracking-wide text-xs sm:text-sm text-center sm:text-left">
+                    Next-Gen Tech Systems & Academy
+                  </span>
+
+                  {/* Right Pill - Duplicate for symmetry on mobile */}
+                  <div className="flex sm:hidden -space-x-1.5">
+                    <div className="w-5 h-5 rounded-full bg-[#b2f042]"></div>
+                    <div className="w-5 h-5 rounded-r-full bg-[var(--deep-black)]"></div>
+                  </div>
                 </div>
-                <span className="font-bold text-slate-600 tracking-wide text-xs sm:text-sm">
-                  Next-Gen Tech Systems & Academy
-                </span>
               </div>
 
               <h1 className="text-lg min-[375px]:text-xl min-[414px]:text-2xl sm:text-4xl lg:text-[2.6rem] xl:text-[3.2rem] font-extrabold tracking-tight text-[var(--deep-black)] leading-[1.2] w-full">
