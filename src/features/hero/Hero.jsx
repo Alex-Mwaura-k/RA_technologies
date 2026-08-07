@@ -44,7 +44,7 @@ const Hero = () => {
           
           <div className="flex flex-col justify-between h-full max-h-[580px] max-w-2xl py-2">
             
-            <div className="flex flex-col items-start w-full">
+            <div className="flex flex-col items-center sm:items-start w-full">
               
               {/* 
                 Top Banner - -mt-10 pushes the pill up, mb-10 perfectly compensates 
@@ -71,7 +71,8 @@ const Hero = () => {
                 </div>
               </div>
 
-              <h1 className="text-lg min-[375px]:text-xl min-[414px]:text-2xl sm:text-4xl lg:text-[2.6rem] xl:text-[3.2rem] font-extrabold tracking-tight text-[var(--deep-black)] leading-[1.2] w-full">
+              {/* Added text-center sm:text-left to center the text on mobile */}
+              <h1 className="text-center sm:text-left text-lg min-[375px]:text-xl min-[414px]:text-2xl sm:text-4xl lg:text-[2.6rem] xl:text-[3.2rem] font-extrabold tracking-tight text-[var(--deep-black)] leading-[1.2] w-full">
                 <span className="block whitespace-nowrap">
                   <CascadeText text="Architecting Enterprise Code." delay={300} speed={25} />
                 </span>
@@ -82,10 +83,10 @@ const Hero = () => {
             </div>
 
             <div className="flex flex-col gap-3 lg:gap-4 py-4 lg:py-6 border-y border-slate-200/80 w-full lg:w-[90%] bg-white/40 backdrop-blur-sm px-3 lg:px-4 rounded-2xl my-4 lg:my-auto">
-              <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+              <span className="text-xs font-bold text-slate-400 uppercase tracking-widest text-center sm:text-left">
                 Technology that Scales Business
               </span>
-              <div className="flex flex-wrap gap-2 lg:gap-2.5">
+              <div className="flex flex-wrap justify-center sm:justify-start gap-2 lg:gap-2.5">
                 {['Cloud Architecture', 'Software Development', 'Bug Bounty', 'Enterprise Security', 'Data Analytics', 'DevOps'].map((tech) => (
                   <span 
                     key={tech} 
@@ -97,8 +98,8 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="flex flex-col items-start w-full">
-              <p className="text-sm sm:text-base lg:text-lg text-slate-600 my-2 sm:my-3 max-w-2xl leading-relaxed">
+            <div className="flex flex-col items-center sm:items-start w-full">
+              <p className="text-sm sm:text-base lg:text-lg text-slate-600 my-2 sm:my-3 max-w-2xl leading-relaxed text-center sm:text-left">
                 RA technologies builds robust, high-performance SaaS platforms for modern organizations, 
                 while empowering students with elite engineering tracks in Cloud, Security, and Development. 
               </p>
