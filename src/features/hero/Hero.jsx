@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import CascadeText from '../../components/animations/CascadeText';
 
 const Hero = () => {
@@ -43,7 +44,7 @@ const Hero = () => {
           
           <div className="flex flex-col justify-between h-full max-h-[580px] max-w-2xl py-2">
             
-            <div className="flex flex-col items-start">
+            <div className="flex flex-col items-start w-full">
               <div className="flex items-center gap-3 mb-4 sm:mb-6">
                 <div className="flex -space-x-1.5">
                   <div className="w-5 h-5 rounded-full bg-[#b2f042]"></div>
@@ -54,25 +55,25 @@ const Hero = () => {
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-[2.6rem] xl:text-[3.2rem] font-extrabold tracking-tight text-[var(--deep-black)] leading-[1.2]">
-                <span className="block sm:whitespace-nowrap">
+              <h1 className="text-lg min-[375px]:text-xl min-[414px]:text-2xl sm:text-4xl lg:text-[2.6rem] xl:text-[3.2rem] font-extrabold tracking-tight text-[var(--deep-black)] leading-[1.2] w-full">
+                <span className="block whitespace-nowrap">
                   <CascadeText text="Architecting Enterprise Code." delay={300} speed={25} />
                 </span>
-                <span className="block sm:whitespace-nowrap text-[var(--dark-blue)]">
+                <span className="block whitespace-nowrap text-[var(--dark-blue)]">
                   <CascadeText text="Training Tech Pioneers." delay={1200} speed={25} />
                 </span>
               </h1>
             </div>
 
-            <div className="hidden lg:flex flex-col gap-4 py-6 border-y border-slate-200/80 w-[90%] bg-white/40 backdrop-blur-sm px-4 rounded-2xl my-auto">
+            <div className="flex flex-col gap-3 lg:gap-4 py-4 lg:py-6 border-y border-slate-200/80 w-full lg:w-[90%] bg-white/40 backdrop-blur-sm px-3 lg:px-4 rounded-2xl my-4 lg:my-auto">
               <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">
                 Technology that Scales Business
               </span>
-              <div className="flex flex-wrap gap-2.5">
+              <div className="flex flex-wrap gap-2 lg:gap-2.5">
                 {['Cloud Architecture', 'Software Development', 'Bug Bounty', 'Enterprise Security', 'Data Analytics', 'DevOps'].map((tech) => (
                   <span 
                     key={tech} 
-                    className="px-3.5 py-1.5 bg-white text-slate-700 rounded-full text-xs font-semibold border border-slate-200/80 shadow-sm transition-colors hover:border-[var(--tech-blue)] cursor-default"
+                    className="px-3 py-1 lg:px-3.5 lg:py-1.5 bg-white text-slate-700 rounded-full text-[10px] sm:text-xs font-semibold border border-slate-200/80 shadow-sm transition-colors hover:border-[var(--tech-blue)] cursor-default"
                   >
                     {tech}
                   </span>
@@ -80,28 +81,28 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="flex flex-col items-start">
+            <div className="flex flex-col items-start w-full">
               <p className="text-sm sm:text-base lg:text-lg text-slate-600 my-2 sm:my-3 max-w-2xl leading-relaxed">
                 RA technologies builds robust, high-performance SaaS platforms for modern organizations, 
                 while empowering students with elite engineering tracks in Cloud, Security, and Development. 
               </p>
 
-              <div className="flex flex-col sm:flex-row items-center mt-10 sm:mt-14 gap-4 w-full sm:w-auto">
-                <a 
-                  href="#solutions" 
+              <div className="flex flex-col sm:flex-row items-center mt-6 sm:mt-14 gap-4 w-full sm:w-auto">
+                <Link 
+                  to="/solutions" 
                   className="inline-flex items-center justify-center gap-2 bg-[var(--dark-blue)] hover:bg-[var(--deep-black)] text-[var(--pure-white)] font-semibold px-8 py-3.5 rounded-full text-base transition-colors duration-300 shadow-lg shadow-blue-900/10 w-full sm:w-auto"
                 >
                   Deploy Solutions
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
-                </a>
-                <a 
-                  href="#academy" 
+                </Link>
+                <Link 
+                  to="/academy" 
                   className="inline-flex items-center justify-center bg-white/80 backdrop-blur-sm border border-slate-300 hover:border-[var(--tech-blue)] text-slate-800 hover:text-[var(--tech-blue)] font-semibold px-8 py-3.5 rounded-full text-base transition-colors duration-300 shadow-sm w-full sm:w-auto"
                 >
                   Explore Academy
-                </a>
+                </Link>
               </div>
             </div>
 
