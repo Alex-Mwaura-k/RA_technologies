@@ -64,10 +64,10 @@ const Hero = () => {
                   </span>
 
                   {/* Right Pill - Duplicate for symmetry on mobile */}
-                  <div className="flex sm:hidden -space-x-1.5">
-                    <div className="w-5 h-5 rounded-full bg-[#b2f042]"></div>
-                    <div className="w-5 h-5 rounded-r-full bg-[var(--deep-black)]"></div>
-                  </div>
+                  <div className="flex sm:hidden">
+  <div className="w-5 h-5 rounded-l-full bg-[var(--deep-black)]"></div>
+  <div className="w-5 h-5 rounded-r-full bg-[#b2f042]"></div>
+</div>
                 </div>
               </div>
 
