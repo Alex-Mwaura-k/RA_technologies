@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { SITE_CONFIG } from '../../constants/siteConfig';
 
 const ChatbotButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,14 +8,16 @@ const ChatbotButton = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: "Hello! 👋 Welcome to RA Technologies. How can we help you today?",
+      text: `Hello! 👋 Welcome to ${SITE_CONFIG.brandName}. How can we help you today?`,
       sender: 'bot',
     },
   ]);
 
   const messagesEndRef = useRef(null);
-  const phoneNumber = "1234567890";
-  const whatsAppNumber = "1234567890";
+  
+  // Use the phone number from config. For WhatsApp, strip any non-digit characters.
+  const phoneNumber = SITE_CONFIG.contact.phone;
+  const whatsAppNumber = SITE_CONFIG.contact.whatsapp || SITE_CONFIG.contact.phone.replace(/\D/g, '');
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
@@ -63,10 +66,10 @@ const ChatbotButton = () => {
         <div className="bg-slate-900 text-white p-3.5 flex justify-between items-center shadow-md z-10">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 bg-white text-slate-900 rounded-full flex items-center justify-center font-bold text-xs">
-              RA
+              {SITE_CONFIG.brandShort}
             </div>
             <div>
-              <h3 className="font-semibold text-sm">RA Support</h3>
+              <h3 className="font-semibold text-sm">{SITE_CONFIG.brandShort} Support</h3>
               <p className="text-xs text-slate-300">Typically replies instantly</p>
             </div>
           </div>
