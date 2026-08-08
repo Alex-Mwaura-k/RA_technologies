@@ -112,7 +112,7 @@ const SolutionsSection = ({ isHomePage = false }) => {
           </h2>
 
           {!isHomePage && (
-            <p className="mt-5 text-lg text-slate-500 max-w-3xl leading-relaxed">
+            <p className="mt-3 text-lg text-slate-500 max-w-3xl leading-relaxed">
               We build modular, resilient backbones engineered to scale. From asset management to multi-channel notifications, our features deploy seamlessly into any industrial sector.
             </p>
           )}

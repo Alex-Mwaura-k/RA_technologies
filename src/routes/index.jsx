@@ -5,6 +5,8 @@ import Solutions from '../pages/Solutions';
 import Academy from '../pages/Academy';
 import Blog from '../pages/Blog';
 import BlogPost from '../pages/BlogPost';
+import PrivacyPolicy from '../pages/PrivacyPolicy';
+import TermsOfService from '../pages/TermsOfService';
 import ScrollToTop from '../components/floating/ScrollToTop';
 import ChatbotButton from '../components/floating/ChatbotButton';
 
@@ -41,6 +43,14 @@ export const router = createBrowserRouter([
       {
         path: '/blog/:id',
         element: <BlogPost />, 
+      },
+      {
+        path: '/privacy-policy',
+        element: <PrivacyPolicy />,
+      },
+      {
+        path: '/terms-of-service',
+        element: <TermsOfService />,
       },
     ]
   },
