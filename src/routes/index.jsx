@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBrowserRouter, Outlet } from 'react-router-dom';
+import { createBrowserRouter, Outlet, Link } from 'react-router-dom';
 import Home from '../pages/Home';
 import Solutions from '../pages/Solutions';
 import Academy from '../pages/Academy';
@@ -57,12 +57,12 @@ export const router = createBrowserRouter([
         <p className="mt-4 text-base text-slate-600 max-w-md leading-relaxed">
           The route or publication you are looking for doesn't exist or may have been relocated.
         </p>
-        <a 
-          href="/" 
+        <Link 
+          to="/" 
           className="mt-8 inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white bg-[var(--deep-black)] rounded-lg hover:bg-slate-800 transition-all duration-200 shadow-sm"
         >
           Return Home &rarr;
-        </a>
+        </Link>
       </div>
     ),
   },

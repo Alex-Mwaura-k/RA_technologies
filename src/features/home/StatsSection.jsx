@@ -125,8 +125,25 @@ const partners = [
 const duplicatedPartners = [...partners, ...partners];
 
 const StatsSection = () => {
+  const sectionRef = useRef(null);
+
+  // Calculate mouse position relative to the section and set CSS variables
+  const handleMouseMove = (e) => {
+    if (!sectionRef.current) return;
+    const rect = sectionRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    sectionRef.current.style.setProperty('--mouse-x', `${x}px`);
+    sectionRef.current.style.setProperty('--mouse-y', `${y}px`);
+  };
+
   return (
-    <section className="bg-slate-900 text-white py-16 border-y border-slate-800 overflow-hidden">
+    <section 
+      ref={sectionRef}
+      onMouseMove={handleMouseMove}
+      className="group relative bg-slate-900 text-white py-16 border-y border-slate-800 overflow-hidden"
+    >
       
       <style>
         {`
@@ -134,7 +151,6 @@ const StatsSection = () => {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
           }
-          /* 3. New keyframes for fade-up effect */
           @keyframes fade-in-up {
             0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
@@ -149,14 +165,25 @@ const StatsSection = () => {
             -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
             mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
           }
-          /* 4. New class for fade-up animation */
           .animate-fade-in-up {
             animation: fade-in-up 0.8s ease-out forwards;
           }
         `}
       </style>
 
-      <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
+      {/* The Glow Element */}
+      <div 
+        className="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 blur-3xl"
+        style={{
+          background: `radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+            rgba(16, 185, 129, 0.25) 0%, 
+            rgba(16, 185, 129, 0.05) 40%, 
+            rgba(16, 185, 129, 0) 70%
+          )`
+        }}
+      />
+
+      <div className="relative z-10 max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-8">
           <p className="text-sm font-medium tracking-widest uppercase text-slate-500">
@@ -164,7 +191,7 @@ const StatsSection = () => {
           </p>
         </div>
 
-        <div className="relative flex overflow-hidden fade-mask group mb-16">
+        <div className="relative flex overflow-hidden fade-mask group/scroll mb-16">
           <div className="flex w-max animate-scroll items-center gap-16 pr-16 cursor-pointer">
             {duplicatedPartners.map((partner, idx) => (
               <div 
@@ -182,15 +209,10 @@ const StatsSection = () => {
 
         <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent opacity-50 mb-12"></div>
 
-        {/* 
-          CHANGED: Replaced 'flex flex-col' with 'grid grid-cols-2 gap-y-10' for mobile.
-          On 'sm' breakpoints and up, it overrides the grid with 'sm:flex sm:flex-row' to maintain the desktop layout.
-        */}
         <div className="grid grid-cols-2 gap-y-10 gap-x-4 sm:flex sm:flex-row sm:justify-between items-center w-full text-center sm:gap-4">
           {stats.map((stat, i) => (
             <div key={i} className="flex flex-col items-center">
               <span className="text-3xl sm:text-4xl font-extrabold text-[var(--tech-blue)] tracking-tight">
-                {/* 5. Apply the AnimatedStat component here */}
                 <AnimatedStat value={stat.value} />
               </span>
               <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400 mt-3">
