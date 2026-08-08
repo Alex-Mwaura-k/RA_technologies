@@ -1,6 +1,62 @@
-import React from 'react';
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    message: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!formData.firstName.trim()) {
+      toast.error('Please enter your first name.');
+      return;
+    }
+
+    if (!formData.email.trim() || !formData.email.includes('@')) {
+      toast.error('Please enter a valid email address.');
+      return;
+    }
+
+    if (!formData.message.trim()) {
+      toast.error('Please enter your message or inquiry.');
+      return;
+    }
+
+    // Trigger non-wrapping custom toast matching design tokens
+    toast.custom((t) => (
+      <div
+        className={`${
+          t.visible ? 'animate-enter' : 'animate-leave'
+        } flex items-center gap-3 bg-slate-900 text-white border border-slate-800 px-4 py-3 rounded-xl shadow-lg pointer-events-auto whitespace-nowrap max-w-[calc(100vw-2rem)] sm:max-w-none`}
+      >
+        <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-slate-950 font-bold text-xs flex-shrink-0">
+          ✓
+        </div>
+        <span className="text-sm font-medium">
+          Thank you! Your inquiry has been submitted successfully.
+        </span>
+      </div>
+    ));
+
+    // Reset form after submission
+    setFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      message: '',
+    });
+  };
+
   return (
     <section className="py-12 bg-slate-50">
       <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,12 +100,15 @@ const ContactForm = () => {
 
           {/* Right Side: Form Inputs */}
           <div className="w-full lg:w-7/12 p-8 md:p-12">
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-2">First Name</label>
                   <input 
                     type="text" 
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
                     className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                     placeholder="Alex"
                   />
@@ -58,6 +117,9 @@ const ContactForm = () => {
                   <label className="block text-sm font-semibold text-slate-700 mb-2">Last Name</label>
                   <input 
                     type="text" 
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
                     className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                     placeholder="Rivera"
                   />
@@ -68,6 +130,9 @@ const ContactForm = () => {
                 <label className="block text-sm font-semibold text-slate-700 mb-2">Email Address</label>
                 <input 
                   type="email" 
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                   placeholder="alex@company.com"
                 />
@@ -77,6 +142,9 @@ const ContactForm = () => {
                 <label className="block text-sm font-semibold text-slate-700 mb-2">Message or Inquiry</label>
                 <textarea 
                   rows="5"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
                   placeholder="How can we help you..."
                 ></textarea>
