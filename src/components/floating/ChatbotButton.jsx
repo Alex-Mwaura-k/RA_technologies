@@ -52,11 +52,11 @@ const ChatbotButton = () => {
   }, [messages, isBotTyping]);
 
   return (
-    <div className="fixed bottom-6 left-4 md:left-[max(1.5rem,calc((100vw-1300px)/4-1.5rem))] z-50 flex flex-col items-start">
+    <div className="fixed bottom-6 left-4 md:left-[max(1.5rem,calc((100vw-1300px)/4-1.5rem))] z-50 flex flex-col items-start pointer-events-none">
       
-      {/* Chat Window */}
+      {/* Chat Window - Added pointer-events-auto to ensure the chat window is clickable */}
       <div 
-        className={`bg-slate-50 shadow-2xl rounded-2xl w-80 sm:w-96 overflow-hidden transition-all duration-300 ease-in-out origin-bottom-left mb-4 flex flex-col ${
+        className={`bg-slate-50 shadow-2xl rounded-2xl w-80 sm:w-96 overflow-hidden transition-all duration-300 ease-in-out origin-bottom-left mb-4 flex flex-col pointer-events-auto ${
           isOpen 
             ? 'opacity-100 scale-100 visible h-[360px]' 
             : 'opacity-0 scale-90 invisible h-0'
@@ -160,11 +160,11 @@ const ChatbotButton = () => {
         </form>
       </div>
 
-      {/* Chat Trigger Button */}
+      {/* Chat Trigger Button - Added pointer-events-auto so the button itself remains clickable */}
       <button
         onClick={toggleChat}
         aria-label="Open chat"
-        className={`w-12 h-12 flex items-center justify-center text-white rounded-full shadow-2xl border-2 border-slate-500 transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-slate-300 ${
+        className={`w-12 h-12 flex items-center justify-center text-white rounded-full shadow-2xl border-2 border-slate-500 transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-slate-300 pointer-events-auto ${
           isOpen ? 'bg-slate-700 rotate-90 scale-90 opacity-0 absolute pointer-events-none' : 'bg-slate-900 hover:bg-slate-800 rotate-0 scale-100 opacity-100 relative'
         }`}
       >
