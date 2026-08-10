@@ -47,7 +47,7 @@ export default defineConfig({
         name: "RA technologies",
         description: "Engineering the Future of Software & Talent.",
         theme_color: "#0f172a",
-        background_color: "#ffffff",
+        background_color: "#0f172a",
         display: "standalone",
         start_url: "/",
         orientation: "portrait",

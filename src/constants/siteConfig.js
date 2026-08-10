@@ -4,7 +4,11 @@ const phone = "+254729497152";
 // Clean non-digit characters for the WhatsApp link (removes +, spaces, etc.)
 const cleanPhone = phone.replace(/\D/g, ""); 
 
+// Centralized domain for easy updating
+const siteUrl = "https://ra-technologies.onrender.com";
+
 export const SITE_CONFIG = {
+  domain: siteUrl,
   brandName: "RAtechnologies.",
   brandShort: "RA",
   copyrightName: "RA_technologies",
