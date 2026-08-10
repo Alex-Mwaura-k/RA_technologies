@@ -223,8 +223,6 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="h-[1px] bg-blue-200/60 my-4"></div>
-
           {/* Mobile Blog & Standard Links */}
           <Link to="/blog" onClick={() => setIsOpen(false)} className="block text-base font-bold text-[var(--deep-black)] hover:text-[var(--tech-blue)] transition-colors">Blog</Link>
           <a href={isHome ? '#about' : '/#about'} onClick={() => setIsOpen(false)} className="block text-base font-bold text-[var(--deep-black)] hover:text-[var(--tech-blue)] transition-colors">About Us</a>

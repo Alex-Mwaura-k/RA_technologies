@@ -137,13 +137,14 @@ const SolutionsSection = ({ isHomePage = false }) => {
                     alt={sol.title} 
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
+                  {/* Icon Overlaid on Image Top Right */}
+                  <div className="absolute top-3 right-3 z-10 w-12 h-12 flex items-center justify-center rounded-lg bg-white/95 backdrop-blur-sm border border-slate-200 shadow-sm group-hover:bg-blue-50 transition-colors">
+                    {sol.icon}
+                  </div>
                 </div>
                 
                 {/* Content Block */}
                 <div className="p-6 flex flex-col flex-grow">
-                  <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-blue-50/50 border border-blue-100/50 mb-4">
-                    {sol.icon}
-                  </div>
                   <h3 className="text-lg font-bold text-[var(--deep-black)] tracking-tight mb-2">
                     {sol.title}
                   </h3>

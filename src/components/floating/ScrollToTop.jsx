@@ -2,15 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom'; 
 
 const ScrollToTop = () => {
-  const { pathname } = useLocation(); 
+  // Grab both pathname AND hash
+  const { pathname, hash } = useLocation(); 
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  }, [pathname]); 
+    // ONLY scroll to top on route change if there is NO hash targeting a section
+    if (!hash) {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }
+  }, [pathname, hash]); 
 
   useEffect(() => {
     const toggleVisibility = () => {
