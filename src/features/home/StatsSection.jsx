@@ -142,7 +142,7 @@ const StatsSection = () => {
     <section 
       ref={sectionRef}
       onMouseMove={handleMouseMove}
-      className="group relative bg-slate-900 text-white py-16 border-y border-slate-800 overflow-hidden"
+      className="group relative bg-[#020617] text-white py-16 border-y border-slate-800 overflow-hidden"
     >
       
       <style>
