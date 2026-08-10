@@ -43,7 +43,7 @@ export default defineConfig({
       },
       
       manifest: {
-        short_name: "RAtech",
+        short_name: "RA tech",
         name: "RA technologies",
         description: "Engineering the Future of Software & Talent.",
         theme_color: "#0f172a",
