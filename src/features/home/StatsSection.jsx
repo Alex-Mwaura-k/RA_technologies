@@ -176,7 +176,7 @@ const StatsSection = () => {
         className="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 blur-3xl"
         style={{
           background: `radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-            rgba(16, 185, 129, 0.25) 0%, 
+            rgba(16, 185, 129, 0.3) 0%, 
             rgba(16, 185, 129, 0.05) 40%, 
             rgba(16, 185, 129, 0) 70%
           )`
