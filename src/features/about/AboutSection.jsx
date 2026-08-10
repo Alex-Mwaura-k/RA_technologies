@@ -90,7 +90,7 @@ const AboutSection = () => {
           {/* Problem / Solution Grid Inline Below */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {challengesData.map((challenge) => (
-              <div key={challenge.id} className="bg-white border border-slate-200/70 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col text-left">
+              <div key={challenge.id} className="bg-blue-50/60 border border-slate-200/70 p-6 rounded-2xl shadow-sm flex flex-col text-left">
                 {/* Problem */}
                 <div className="flex items-start gap-4 flex-grow">
                   {challenge.problemIcon}
