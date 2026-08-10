@@ -43,8 +43,8 @@ export default defineConfig({
       },
       
       manifest: {
-        short_name: "RATech",
-        name: "RATechnologies - Software & Talent",
+        short_name: "RAtech",
+        name: "RA technologies",
         description: "Engineering the Future of Software & Talent.",
         theme_color: "#0f172a",
         background_color: "#ffffff",
