@@ -67,7 +67,7 @@ const Team = () => {
 
   useEffect(() => {
     // 1. Dynamic Page Meta Tags Update for SEO Search Visibility
-    document.title = "RAtechnologies Leadership & Team | Alex Rivera, Marcus Chen, Sophia Patel, David Vance";
+    document.title = "RA technologies";
     
     const metaDescription = document.querySelector('meta[name="description"]');
     const descriptionText = "Meet the leadership team behind RAtechnologies: Alex Rivera (CEO), Marcus Chen (Head of Academy), Sophia Patel (Lead Full-Stack Engineer), and David Vance (Senior Security Architect).";

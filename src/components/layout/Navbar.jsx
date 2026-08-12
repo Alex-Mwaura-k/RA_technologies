@@ -114,6 +114,10 @@ const Navbar = () => {
               <a href={isHome ? '#about' : '/#about'} className="text-sm font-semibold text-slate-600 hover:text-[var(--tech-blue)] transition-colors">
                 About
               </a>
+
+              <Link to="/team" className="text-sm font-semibold text-slate-600 hover:text-[var(--tech-blue)] transition-colors">
+                Team
+              </Link>
             </div>
 
             {/* Right: Auth Action Buttons */}
@@ -226,6 +230,7 @@ const Navbar = () => {
           {/* Mobile Blog & Standard Links */}
           <Link to="/blog" onClick={() => setIsOpen(false)} className="block text-base font-bold text-[var(--deep-black)] hover:text-[var(--tech-blue)] transition-colors">Blog</Link>
           <a href={isHome ? '#about' : '/#about'} onClick={() => setIsOpen(false)} className="block text-base font-bold text-[var(--deep-black)] hover:text-[var(--tech-blue)] transition-colors">About Us</a>
+          <Link to="/team" onClick={() => setIsOpen(false)} className="block text-base font-bold text-[var(--deep-black)] hover:text-[var(--tech-blue)] transition-colors">Team</Link>
           <a href={isHome ? '#contact' : '/#contact'} onClick={() => setIsOpen(false)} className="block text-base font-bold text-[var(--deep-black)] hover:text-[var(--tech-blue)] transition-colors">Contact</a>
           
         </div>
