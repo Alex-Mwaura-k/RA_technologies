@@ -10,6 +10,7 @@ import PrivacyPolicy from '../pages/PrivacyPolicy';
 import TermsOfService from '../pages/TermsOfService';
 import Login from '../pages/Login';
 import Signup from '../pages/Signup';
+import ForgotPassword from '../pages/ForgotPassword';
 import ScrollToTop from '../components/floating/ScrollToTop';
 import ChatbotButton from '../components/floating/ChatbotButton';
 
@@ -66,6 +67,10 @@ export const router = createBrowserRouter([
       {
         path: '/signup',
         element: <Signup />,
+      },
+      {
+        path: '/forgot-password',
+        element: <ForgotPassword />,
       },
     ]
   },

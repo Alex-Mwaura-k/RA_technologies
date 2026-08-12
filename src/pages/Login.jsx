@@ -88,7 +88,7 @@ const Login = () => {
                   <label className="block text-xs font-semibold text-slate-700">
                     Password
                   </label>
-                  <Link to="#" className="text-[11px] sm:text-xs font-semibold text-blue-600 hover:text-blue-500 transition-colors">
+                  <Link to="/forgot-password" className="text-[11px] sm:text-xs font-semibold text-blue-600 hover:text-blue-500 transition-colors">
                     Forgot password?
                   </Link>
                 </div>
