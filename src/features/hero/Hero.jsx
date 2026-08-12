@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import CascadeText from '../../components/animations/CascadeText';
+import SharedBackground from '../../components/layout/SharedBackground'; // Adjust path if necessary
 
 const Hero = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -24,33 +25,15 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative w-full h-[100dvh] min-h-[620px] flex flex-col justify-center bg-gradient-to-t from-slate-100 via-blue-50/30 to-white overflow-hidden pt-20 pb-2 sm:pb-8">
-      
-      <div 
-        className="absolute inset-0 pointer-events-none opacity-35" 
-        style={{ backgroundImage: 'radial-gradient(#cbd5e1 2px, transparent 2px)', backgroundSize: '30px 30px' }}
-      ></div>
-
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -bottom-20 -left-20 w-[30rem] h-[30rem] bg-blue-200/50 rounded-full blur-3xl"></div>
-        <div className="absolute -top-10 right-0 w-[28rem] h-[28rem] bg-indigo-100/60 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-1/3 w-[22rem] h-[22rem] bg-[#b2f042]/20 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="absolute inset-0 pointer-events-none backdrop-blur-[2px]"></div>
-
-      <div className="relative max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 h-full flex flex-col justify-center">
+    <SharedBackground className="pt-20 pb-2 sm:pb-8 h-[100dvh] min-h-[620px]">
+      <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 w-full h-full flex flex-col justify-center">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center h-full max-h-[750px]">
           
           <div className="flex flex-col justify-between h-full max-h-[580px] max-w-2xl py-2">
             
             <div className="flex flex-col items-start w-full">
               
-              {/* 
-                Top Banner - -mt-10 pushes the pill up, mb-10 perfectly compensates 
-                so the H1 below it DOES NOT move from its original position. 
-                Desktop values (sm:mt-0, sm:mb-6) remain unchanged.
-              */}
+              {/* Top Banner */}
               <div className="w-full flex justify-center sm:justify-start -mt-10 sm:mt-0 mb-10 sm:mb-6">
                 <div className="flex items-center gap-3">
                   {/* Left Pill */}
@@ -65,13 +48,13 @@ const Hero = () => {
 
                   {/* Right Pill - Duplicate for symmetry on mobile */}
                   <div className="flex sm:hidden">
-  <div className="w-5 h-5 rounded-l-full bg-[var(--deep-black)]"></div>
-  <div className="w-5 h-5 rounded-r-full bg-[#b2f042]"></div>
-</div>
+                    <div className="w-5 h-5 rounded-l-full bg-[var(--deep-black)]"></div>
+                    <div className="w-5 h-5 rounded-r-full bg-[#b2f042]"></div>
+                  </div>
                 </div>
               </div>
 
-              {/* ONLY the H1 gets text-center sm:text-left */}
+              {/* H1 Text */}
               <h1 className="text-center sm:text-left text-lg min-[375px]:text-xl min-[414px]:text-2xl sm:text-4xl lg:text-[2.6rem] xl:text-[3.2rem] font-extrabold tracking-tight text-[var(--deep-black)] leading-[1.2] w-full">
                 <span className="block whitespace-nowrap">
                   <CascadeText text="Architecting Enterprise Code." delay={300} speed={25} />
@@ -82,7 +65,7 @@ const Hero = () => {
               </h1>
             </div>
 
-            {/* Everything below is reverted back to left-aligned */}
+            {/* Tech Stack Tags */}
             <div className="flex flex-col gap-3 lg:gap-4 py-4 lg:py-6 border-y border-slate-200/80 w-full lg:w-[90%] bg-white/40 backdrop-blur-sm px-3 lg:px-4 rounded-2xl my-4 lg:my-auto">
               <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">
                 Technology that Scales Business
@@ -99,6 +82,7 @@ const Hero = () => {
               </div>
             </div>
 
+            {/* Description and CTA Buttons */}
             <div className="flex flex-col items-start w-full">
               <p className="text-sm sm:text-base lg:text-lg text-slate-600 my-2 sm:my-3 max-w-2xl leading-relaxed">
                 RA technologies builds robust, high-performance SaaS platforms for modern organizations, 
@@ -126,6 +110,7 @@ const Hero = () => {
 
           </div>
 
+          {/* Right Side - Images Wrapper */}
           <div className="relative w-full h-full max-h-[500px] lg:max-h-[580px] hidden md:block self-center aspect-[4/3] lg:aspect-auto">
             
             <div 
@@ -164,6 +149,7 @@ const Hero = () => {
               />
             </div>
 
+            {/* Circular Text Animation */}
             <div className="absolute bottom-[29%] left-0 w-24 sm:w-28 h-24 sm:h-28 bg-[var(--deep-black)] rounded-full z-20 flex items-center justify-center shadow-2xl">
               <div className="absolute inset-0 animate-[spin_12s_linear_infinite]">
                 <svg viewBox="0 0 100 100" className="w-full h-full text-[#b2f042] p-1.5">
@@ -180,6 +166,7 @@ const Hero = () => {
               </svg>
             </div>
 
+            {/* Sparkle/Star Icon */}
             <div className="absolute bottom-[10%] right-[-2%] w-8 sm:w-10 h-8 sm:h-10 text-[var(--tech-blue)] z-20 animate-pulse">
               <svg viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5z" />
@@ -189,7 +176,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
+    </SharedBackground>
   );
 };
 
