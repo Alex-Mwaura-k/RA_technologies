@@ -13,6 +13,7 @@ import Signup from '../pages/Signup';
 import ForgotPassword from '../pages/ForgotPassword';
 import ScrollToTop from '../components/floating/ScrollToTop';
 import ChatbotButton from '../components/floating/ChatbotButton';
+import LearningPortal from '../components/learning/LearningPortal';
 
 const RootLayout = () => {
   return (
@@ -71,6 +72,10 @@ export const router = createBrowserRouter([
       {
         path: '/forgot-password',
         element: <ForgotPassword />,
+      },
+      {
+        path: '/learn',
+        element: <LearningPortal />,
       },
     ]
   },
