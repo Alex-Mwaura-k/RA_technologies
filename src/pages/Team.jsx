@@ -5,32 +5,31 @@ import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 
 const teamMembers = [
-  {
+{
     id: '1',
-    name: 'Alex Rivera',
-    role: 'Co-Founder & Chief Executive Officer',
+    name: 'Alex Mwaura',
+    role: 'Chief Executive Officer & Founder', 
     category: 'Leadership',
-    bio: 'Ex-AWS Cloud Architect with 10+ years scaling high-concurrency SaaS infrastructures and enterprise security models at RAtechnologies.',
-    story: 'Alex holds a Master’s degree in Cloud Computing from MIT. Before founding RAtechnologies, he spent a decade at AWS architecting resilient, distributed systems for Fortune 500 companies. His vision is to bridge the gap between enterprise security needs and accessible developer education.',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    bio: 'Full-Stack Developer & Certified AWS Solutions Architect with expertise in building and deploying secure, highly available web infrastructure.',
+    story: 'Alex Mwaura Kariuki is currently pursuing a Bachelor of Science in Computer Science at IU Berlin, complementing his Bachelor of Education from KeMU. Before focusing on RAtechnologies, he honed his skills as a Full Stack Developer at Fedha Lands Ventures, specializing in cloud rendering, server-side tuning, and latency reduction. Backed by a robust portfolio of certifications across AWS, Google Cybersecurity, and Meta Front/Back-End development, Alex bridges the gap between scalable network infrastructure and innovative web design.',
+    image: '../team/Alex-Mwaura-Kariuki.jpg',
     socials: {
-      linkedin: 'https://linkedin.com/in/alex-rivera',
-      github: 'https://github.com/alexrivera',
-      twitter: 'https://twitter.com/alexrivera',
+      linkedin: 'https://linkedin.com/in/alex-mwaura-7707b21a2', 
+      Instagram: 'https://instagram.com/alex_mwaura.k',
+      website: 'https://lexcy.co.ke',
     },
   },
-  {
+{
     id: '2',
-    name: 'Marcus Chen',
+    name: "Robert Ndu'ngu",
     role: 'Co-Founder & Head of Academy',
     category: 'Leadership',
-    bio: 'Former Tech Lead & Security Researcher at RAtechnologies. Passionate about mentoring the next generation of full-stack and cloud engineers.',
-    story: 'With a background in Cybersecurity from Stanford University, Marcus has discovered numerous zero-day vulnerabilities in popular open-source frameworks. He transitioned into education to build RAtechnologies’ core curriculum, aiming to produce security-first engineers.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    bio: 'Computer Engineer with 7 years of extensive experience driving technological innovation within the real estate sector.',
+    story: 'Robert holds a professionalism in Computer Engineering from Mount Kenya University. Before co-founding RAtechnologies, he spent 7 years in the real estate industry, where he leveraged his technical expertise to build scalable property tech solutions. He is passionate about bridging the gap between traditional industries and modern based infrastructure.',
+    image: '../team/Robert-Ndungu-Kariuki.jpg',
     socials: {
-      linkedin: 'https://linkedin.com/in/marcus-chen',
-      github: 'https://github.com/marcuschen',
-      twitter: 'https://twitter.com/marcuschen',
+      linkedin: 'https://linkedin.com/in/robert-kariuki-b22bbb19b',
+      Instagram: 'https://www.instagram.com/robertson_kariuki/',
     },
   },
   {
@@ -42,8 +41,8 @@ const teamMembers = [
     story: 'Sophia graduated top of her class in Software Engineering at the University of Waterloo. She previously led frontend architecture at a major fintech startup before joining RAtechnologies. She is a prominent speaker at React conferences and an active open-source contributor.',
     image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     socials: {
-      linkedin: 'https://linkedin.com/in/sophiapatel',
-      github: 'https://github.com/sophiapatel',
+      linkedin: '#',
+      github: '#',
     },
   },
   {
@@ -55,9 +54,9 @@ const teamMembers = [
     story: 'A self-taught ethical hacker, David earned his OSCP and CISSP certifications by age 22. He has spent the last 8 years executing high-stakes penetration tests for government agencies and financial institutions. At RAtechnologies, he ensures all internal products and student platforms are bulletproof.',
     image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     socials: {
-      linkedin: 'https://linkedin.com/in/davidvance',
-      github: 'https://github.com/davidvance',
-      twitter: 'https://twitter.com/davidvance',
+      linkedin: '#',
+      github: '#',
+      twitter: '#',
     },
   },
 ];
@@ -248,6 +247,22 @@ const Team = () => {
                             </svg>
                           </a>
                         )}
+
+                        {/* ADD THIS NEW INSTAGRAM BLOCK HERE */}
+                        {member.socials.Instagram && (
+                          <a
+                            href={member.socials.Instagram}
+                            target="_blank"
+                            rel="noreferrer me"
+                            itemProp="sameAs"
+                            className="p-1.5 text-slate-500 hover:text-pink-600 bg-white/90 hover:bg-white backdrop-blur-sm shadow-sm rounded-md transition-all"
+                            aria-label={`${member.name}'s Instagram profile`}
+                          >
+                            <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg>
+                          </a>
+                        )}
                       </div>
                     </div>
 
@@ -288,11 +303,11 @@ const Team = () => {
                 </p>
               </div>
               <Link
-                to="/academy"
-                className="whitespace-nowrap bg-[#b2f042] hover:bg-[#a1dc33] text-slate-900 font-bold px-6 py-3 rounded-full text-sm transition-colors"
-              >
-                Explore Academy & Careers
-              </Link>
+              to="/academy"
+              className="whitespace-nowrap bg-[var(--dark-blue)] hover:bg-[var(--tech-blue)] text-white font-bold px-6 py-3 rounded-full text-sm transition-colors"
+                >
+              Explore Academy & Careers
+            </Link>
             </div>
           </div>
         </div>

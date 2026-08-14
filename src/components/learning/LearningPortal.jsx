@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { mockCourse } from '../../data/mockCourse';
+import { courseInfo } from '../../data/courseInfo';
 import SharedBackground from '../../components/layout/SharedBackground';
 import logo from '../../assets/logo.png';
 
 const LearningPortal = ({ isFreeCourse = false }) => {
-  const [currentLesson, setCurrentLesson] = useState(mockCourse.modules[0].lessons[0]);
+  const [currentLesson, setCurrentLesson] = useState(courseInfo.modules[0].lessons[0]);
   const [completedLessons, setCompletedLessons] = useState([1]);
   const [activeTab, setActiveTab] = useState('overview');
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -27,11 +27,11 @@ const LearningPortal = ({ isFreeCourse = false }) => {
     }
   };
 
-  const totalLessons = mockCourse.modules.reduce((acc, m) => acc + m.lessons.length, 0);
+  const totalLessons = courseInfo.modules.reduce((acc, m) => acc + m.lessons.length, 0);
   const progressPercentage = (completedLessons.length / totalLessons) * 100;
 
   // Flatten lessons to easily find the "next" lesson across modules
-  const allLessons = mockCourse.modules.flatMap(m => m.lessons);
+  const allLessons = courseInfo.modules.flatMap(m => m.lessons);
   const currentIndex = allLessons.findIndex(l => l.id === currentLesson.id);
   const nextLesson = allLessons[currentIndex + 1];
   const isCurrentCompleted = completedLessons.includes(currentLesson.id);
@@ -45,7 +45,7 @@ const LearningPortal = ({ isFreeCourse = false }) => {
           
           {/* Brand / Logo */}
           <a 
-            href={!isFreeCourse ? "#" : "/"} 
+            href={!isFreeCourse ? "/" : "/"} 
             className="flex items-center gap-3 hover:opacity-80 transition-opacity"
             aria-label="Return to homepage"
           >
@@ -121,7 +121,7 @@ const LearningPortal = ({ isFreeCourse = false }) => {
               </svg>
             </button>
             <h1 className="text-sm font-bold text-gray-800 dark:text-white truncate max-w-xs sm:max-w-xl">
-              {mockCourse.title}
+              {courseInfo.title}
             </h1>
           </div>
 
@@ -163,7 +163,7 @@ const LearningPortal = ({ isFreeCourse = false }) => {
             </div>
 
             <nav className="flex-1 overflow-y-auto p-3 space-y-5 custom-scrollbar" aria-label="Course Modules">
-              {mockCourse.modules.map((module) => (
+              {courseInfo.modules.map((module) => (
                 <div key={module.id} className="space-y-2">
                   <h2 className="px-2 py-1.5 text-xs font-extrabold text-gray-500 dark:text-slate-400 uppercase tracking-wider">
                     {module.title}
