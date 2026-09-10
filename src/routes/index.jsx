@@ -15,9 +15,14 @@ import ScrollToTop from '../components/floating/ScrollToTop';
 import ChatbotButton from '../components/floating/ChatbotButton';
 import LearningPortal from '../components/learning/LearningPortal';
 
+// 1. Import the AnalyticsTracker component
+import AnalyticsTracker from '../components/common/AnalyticsTracker';
+
 const RootLayout = () => {
   return (
     <>
+      {/* 2. Place it here inside RootLayout */}
+      <AnalyticsTracker />
       <Outlet />
       <ScrollToTop />
       <ChatbotButton />
