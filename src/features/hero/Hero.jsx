@@ -26,21 +26,21 @@ const Hero = () => {
 
   return (
     <SharedBackground>
-      <section className="relative w-full h-[100dvh] min-h-[620px] flex flex-col justify-center overflow-hidden pt-20 pb-2 sm:pb-8">
+      {/* 
+        Mobile/Tablet (< 992px): 100dvh height with centered content (images hidden)
+        Desktop (>= 992px): Stops 100dvh, locks fixed height at 680px, shows image grid, left-aligns text
+      */}
+      <section className="relative w-full max-[991px]:h-[100dvh] max-[991px]:min-h-[620px] min-[992px]:h-[680px] min-[992px]:min-h-0 flex flex-col justify-center overflow-hidden pt-20 pb-6 sm:pb-8 min-[992px]:pt-20 min-[992px]:pb-6">
         
         <div className="relative max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 h-full flex flex-col justify-center">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center h-full max-h-[750px]">
+          <div className="grid min-[992px]:grid-cols-2 gap-8 lg:gap-10 items-center h-full max-h-[750px] min-[992px]:max-h-none">
             
-            <div className="flex flex-col justify-between h-full max-h-[580px] max-w-2xl py-2">
+            {/* Left Column: Centered on < 992px, Left-aligned on >= 992px */}
+            <div className="flex flex-col justify-between items-center min-[992px]:items-start text-center min-[992px]:text-left h-full max-h-[580px] min-[992px]:max-h-[540px] max-w-2xl mx-auto min-[992px]:mx-0 py-2">
               
-              <div className="flex flex-col items-start w-full">
-                
-                {/* 
-                  Top Banner - -mt-10 pushes the pill up, mb-10 perfectly compensates 
-                  so the H1 below it DOES NOT move from its original position. 
-                  Desktop values (sm:mt-0, sm:mb-6) remain unchanged.
-                */}
-                <div className="w-full flex justify-center sm:justify-start -mt-10 sm:mt-0 mb-10 sm:mb-6">
+              <div className="flex flex-col items-center min-[992px]:items-start w-full">
+                {/* Top Banner */}
+                <div className="w-full flex justify-center min-[992px]:justify-start mb-6 min-[992px]:mb-4">
                   <div className="flex items-center gap-3">
                     {/* Left Pill */}
                     <div className="flex -space-x-1.5">
@@ -48,39 +48,39 @@ const Hero = () => {
                       <div className="w-5 h-5 rounded-r-full bg-[var(--deep-black)]"></div>
                     </div>
                     
-                    <span className="font-bold text-slate-600 tracking-wide text-xs sm:text-sm text-center sm:text-left">
+                    <span className="font-bold text-slate-600 tracking-wide text-xs sm:text-sm">
                       Next-Gen Tech Systems & Academy
                     </span>
 
-                    {/* Right Pill - Duplicate for symmetry on mobile */}
-                    <div className="flex sm:hidden">
+                    {/* Right Pill - Symmetry for mobile */}
+                    <div className="flex min-[992px]:hidden">
                       <div className="w-5 h-5 rounded-l-full bg-[var(--deep-black)]"></div>
                       <div className="w-5 h-5 rounded-r-full bg-[#b2f042]"></div>
                     </div>
                   </div>
                 </div>
 
-                {/* ONLY the H1 gets text-center sm:text-left */}
-                <h1 className="text-center sm:text-left text-lg min-[375px]:text-xl min-[414px]:text-2xl sm:text-4xl lg:text-[2.6rem] xl:text-[3.2rem] font-extrabold tracking-tight text-[var(--deep-black)] leading-[1.2] w-full">
-                  <span className="block whitespace-nowrap">
+                {/* Main Heading */}
+                <h1 className="text-center min-[992px]:text-left text-xl min-[375px]:text-2xl sm:text-4xl lg:text-[2.5rem] xl:text-[3rem] font-extrabold tracking-tight text-[var(--deep-black)] leading-[1.2] w-full">
+                  <span className="block min-[992px]:whitespace-nowrap">
                     <CascadeText text="Architecting Enterprise Code." delay={300} speed={25} />
                   </span>
-                  <span className="block whitespace-nowrap text-[var(--dark-blue)]">
+                  <span className="block min-[992px]:whitespace-nowrap text-[var(--dark-blue)]">
                     <CascadeText text="Training Tech Pioneers." delay={1200} speed={25} />
                   </span>
                 </h1>
               </div>
 
-              {/* Everything below is reverted back to left-aligned */}
-              <div className="flex flex-col gap-3 lg:gap-4 py-4 lg:py-6 border-y border-slate-200/80 w-full lg:w-[90%] bg-white/40 backdrop-blur-sm px-3 lg:px-4 rounded-2xl my-4 lg:my-auto">
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+              {/* Tag Badges Container */}
+              <div className="flex flex-col items-center min-[992px]:items-start gap-2.5 lg:gap-3 py-3 lg:py-4 border-y border-slate-200/80 w-full lg:w-[92%] bg-white/40 backdrop-blur-sm px-3 lg:px-4 rounded-2xl my-3 lg:my-auto">
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest text-center min-[992px]:text-left">
                   Technology that Scales Business
                 </span>
-                <div className="flex flex-wrap gap-2 lg:gap-2.5">
+                <div className="flex flex-wrap justify-center min-[992px]:justify-start gap-2 lg:gap-2">
                   {['Cloud Architecture', 'Software Development', 'Bug Bounty', 'Enterprise Security', 'Data Analytics', 'DevOps'].map((tech) => (
                     <span 
                       key={tech} 
-                      className="px-3 py-1 lg:px-3.5 lg:py-1.5 bg-white text-slate-700 rounded-full text-[10px] sm:text-xs font-semibold border border-slate-200/80 shadow-sm transition-colors hover:border-[var(--tech-blue)] cursor-default"
+                      className="px-3 py-1 bg-white text-slate-700 rounded-full text-[10px] sm:text-xs font-semibold border border-slate-200/80 shadow-sm transition-colors hover:border-[var(--tech-blue)] cursor-default"
                     >
                       {tech}
                     </span>
@@ -88,13 +88,14 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col items-start w-full">
-                <p className="text-sm sm:text-base lg:text-lg text-slate-600 my-2 sm:my-3 max-w-2xl leading-relaxed">
+              {/* Description & CTAs */}
+              <div className="flex flex-col items-center min-[992px]:items-start w-full">
+                <p className="text-sm sm:text-base lg:text-base xl:text-lg text-slate-600 my-2 max-w-2xl leading-relaxed text-center min-[992px]:text-left">
                   RA technologies builds robust, high-performance SaaS platforms for modern organizations, 
                   while empowering students with elite engineering tracks in Cloud, Security, and Development. 
                 </p>
 
-                <div className="flex flex-col sm:flex-row items-center mt-6 sm:mt-14 gap-4 w-full sm:w-auto">
+                <div className="flex flex-col sm:flex-row items-center justify-center min-[992px]:justify-start mt-5 sm:mt-6 min-[992px]:mt-6 gap-4 w-full sm:w-auto">
                   <Link 
                     to="/solutions" 
                     className="inline-flex items-center justify-center gap-2 bg-[var(--dark-blue)] hover:bg-[var(--deep-black)] text-[var(--pure-white)] font-semibold px-8 py-3.5 rounded-full text-base transition-colors duration-300 shadow-lg shadow-blue-900/10 w-full sm:w-auto"
@@ -115,7 +116,8 @@ const Hero = () => {
 
             </div>
 
-            <div className="relative w-full h-full max-h-[500px] lg:max-h-[580px] hidden md:block self-center aspect-[4/3] lg:aspect-auto">
+            {/* Right Image Grid Section - Hidden on screens < 992px */}
+            <div className="relative w-full h-full max-h-[500px] lg:max-h-[520px] hidden min-[992px]:block self-center aspect-[4/3] lg:aspect-auto">
               
               <div 
                 onMouseEnter={() => setHoveredIndex(0)}
@@ -153,6 +155,7 @@ const Hero = () => {
                 />
               </div>
 
+              {/* Rotating Circular Badge */}
               <div className="absolute bottom-[29%] left-0 w-24 sm:w-28 h-24 sm:h-28 bg-[var(--deep-black)] rounded-full z-20 flex items-center justify-center shadow-2xl">
                 <div className="absolute inset-0 animate-[spin_12s_linear_infinite]">
                   <svg viewBox="0 0 100 100" className="w-full h-full text-[#b2f042] p-1.5">
@@ -165,10 +168,11 @@ const Hero = () => {
                   </svg>
                 </div>
                 <svg className="w-5 h-5 sm:w-6 sm:h-6 text-[#b2f042] z-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </div>
 
+              {/* Decorative Pulsing Sparkle */}
               <div className="absolute bottom-[10%] right-[-2%] w-8 sm:w-10 h-8 sm:h-10 text-[var(--tech-blue)] z-20 animate-pulse">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5z" />

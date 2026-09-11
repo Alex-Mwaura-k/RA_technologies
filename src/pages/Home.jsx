@@ -14,7 +14,6 @@ import Footer from '../components/layout/Footer';
 const Home = () => {
   const location = useLocation();
 
-  // Listen for changes in the URL hash and force a smooth scroll to ANY section
   useEffect(() => {
     if (location.hash) {
       const id = location.hash.replace('#', '');
