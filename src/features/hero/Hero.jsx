@@ -25,12 +25,13 @@ const Hero = () => {
   };
 
   return (
-    <SharedBackground>
+    <SharedBackground className="h-[100dvh] min-h-[600px] 2xl:h-[740px] 2xl:min-h-[740px] 2xl:max-h-[740px]">
       {/* 
-        Mobile/Tablet (< 992px): 100dvh height with centered content (images hidden)
-        Desktop (>= 992px): Stops 100dvh, locks fixed height at 680px, shows image grid, left-aligns text
+        Height logic:
+        - Mobile, Tablet & Laptops (< 1536px / 2xl): 100dvh fills full viewport height.
+        - Big Desktop Monitors (>= 1536px / 2xl): Fixed height of 740px.
       */}
-      <section className="relative w-full max-[991px]:h-[100dvh] max-[991px]:min-h-[620px] min-[992px]:h-[680px] min-[992px]:min-h-0 flex flex-col justify-center overflow-hidden pt-20 pb-6 sm:pb-8 min-[992px]:pt-20 min-[992px]:pb-6">
+      <section className="relative w-full h-full flex flex-col justify-center overflow-hidden pt-16 pb-4 min-[992px]:pt-20 min-[992px]:pb-6">
         
         <div className="relative max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 h-full flex flex-col justify-center">
           <div className="grid min-[992px]:grid-cols-2 gap-8 lg:gap-10 items-center h-full max-h-[750px] min-[992px]:max-h-none">
