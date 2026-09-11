@@ -26,11 +26,10 @@ const Hero = () => {
 
   return (
     <>
-      {/* BULLETPROOF HEIGHT FIX: This guarantees 100dvh on mobile/laptop and 740px on large screens without relying on Tailwind compiler */}
       <style>
         {`
           .hero-container {
-            min-height: 100vh; /* Safe Fallback */
+            min-height: 100vh;
             min-height: 100dvh;
           }
           @media (min-width: 1536px) {
@@ -49,14 +48,11 @@ const Hero = () => {
           <div className="relative max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 h-full flex flex-col justify-center">
             <div className="grid min-[992px]:grid-cols-2 gap-8 lg:gap-10 items-center h-full max-h-[750px] min-[992px]:max-h-none">
               
-              {/* Left Column: Centered on < 992px, Left-aligned on >= 992px */}
               <div className="flex flex-col justify-between items-center min-[992px]:items-start text-center min-[992px]:text-left h-full max-h-[580px] min-[992px]:max-h-[540px] max-w-2xl mx-auto min-[992px]:mx-0 py-2">
                 
                 <div className="flex flex-col items-center min-[992px]:items-start w-full">
-                  {/* Top Banner */}
                   <div className="w-full flex justify-center min-[992px]:justify-start mb-6 min-[992px]:mb-4">
                     <div className="flex items-center gap-3">
-                      {/* Left Pill */}
                       <div className="flex -space-x-1.5">
                         <div className="w-5 h-5 rounded-full bg-[#b2f042]"></div>
                         <div className="w-5 h-5 rounded-r-full bg-[var(--deep-black)]"></div>
@@ -66,7 +62,6 @@ const Hero = () => {
                         Next-Gen Tech Systems & Academy
                       </span>
 
-                      {/* Right Pill - Symmetry for mobile */}
                       <div className="flex min-[992px]:hidden">
                         <div className="w-5 h-5 rounded-l-full bg-[var(--deep-black)]"></div>
                         <div className="w-5 h-5 rounded-r-full bg-[#b2f042]"></div>
@@ -74,7 +69,6 @@ const Hero = () => {
                     </div>
                   </div>
 
-                  {/* Main Heading */}
                   <h1 className="text-center min-[992px]:text-left text-xl min-[375px]:text-2xl sm:text-4xl lg:text-[2.5rem] xl:text-[3rem] font-extrabold tracking-tight text-[var(--deep-black)] leading-[1.2] w-full">
                     <span className="block min-[992px]:whitespace-nowrap">
                       <CascadeText text="Architecting Enterprise Code." delay={300} speed={25} />
@@ -85,7 +79,6 @@ const Hero = () => {
                   </h1>
                 </div>
 
-                {/* Tag Badges Container */}
                 <div className="flex flex-col items-center min-[992px]:items-start gap-2.5 lg:gap-3 py-3 lg:py-4 border-y border-slate-200/80 w-full lg:w-[92%] bg-white/40 backdrop-blur-sm px-3 lg:px-4 rounded-2xl my-3 lg:my-auto">
                   <span className="text-xs font-bold text-slate-400 uppercase tracking-widest text-center min-[992px]:text-left">
                     Technology that Scales Business
@@ -102,7 +95,6 @@ const Hero = () => {
                   </div>
                 </div>
 
-                {/* Description & CTAs */}
                 <div className="flex flex-col items-center min-[992px]:items-start w-full">
                   <p className="text-sm sm:text-base lg:text-base xl:text-lg text-slate-600 my-2 max-w-2xl leading-relaxed text-center min-[992px]:text-left">
                     RA technologies builds robust, high-performance SaaS platforms for modern organizations, 
@@ -130,7 +122,6 @@ const Hero = () => {
 
               </div>
 
-              {/* Right Image Grid Section - Hidden on screens < 992px */}
               <div className="relative w-full h-full max-h-[500px] lg:max-h-[520px] hidden min-[992px]:block self-center aspect-[4/3] lg:aspect-auto">
                 
                 <div 
@@ -169,7 +160,6 @@ const Hero = () => {
                   />
                 </div>
 
-                {/* Rotating Circular Badge */}
                 <div className="absolute bottom-[29%] left-0 w-24 sm:w-28 h-24 sm:h-28 bg-[var(--deep-black)] rounded-full z-20 flex items-center justify-center shadow-2xl">
                   <div className="absolute inset-0 animate-[spin_12s_linear_infinite]">
                     <svg viewBox="0 0 100 100" className="w-full h-full text-[#b2f042] p-1.5">
@@ -186,7 +176,6 @@ const Hero = () => {
                   </svg>
                 </div>
 
-                {/* Decorative Pulsing Sparkle */}
                 <div className="absolute bottom-[10%] right-[-2%] w-8 sm:w-10 h-8 sm:h-10 text-[var(--tech-blue)] z-20 animate-pulse">
                   <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5z" />
