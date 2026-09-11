@@ -44,7 +44,7 @@ const Hero = () => {
       </style>
 
       <SharedBackground className="hero-container">
-        <section className="relative w-full h-full flex flex-col justify-center overflow-hidden pt-16 pb-4 min-[992px]:pt-20 min-[992px]:pb-6">
+        <section className="relative w-full h-full flex flex-col justify-center overflow-hidden pb-4 min-[992px]:pt-20 min-[992px]:pb-6">
           
           <div className="relative max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 h-full flex flex-col justify-center">
             <div className="grid min-[992px]:grid-cols-2 gap-8 lg:gap-10 items-center h-full max-h-[750px] min-[992px]:max-h-none">
