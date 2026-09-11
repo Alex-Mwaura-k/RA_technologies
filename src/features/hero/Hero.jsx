@@ -28,10 +28,22 @@ const Hero = () => {
     <>
       <style>
         {`
+          /* 1. Default (Standard Mobile): Full dynamic viewport height */
           .hero-container {
             min-height: 100vh;
             min-height: 100dvh;
           }
+          
+          /* 2. Tablet & Mobile "Desktop Site" mode (Fixed Height to prevent the squished void) */
+          @media (min-width: 768px) and (max-width: 991px) {
+            .hero-container {
+              min-height: 800px !important;
+              height: 800px !important;
+              max-height: 800px !important;
+            }
+          }
+
+          /* 3. Original ultra-wide desktop clamp */
           @media (min-width: 1536px) {
             .hero-container {
               min-height: 740px !important;
