@@ -60,7 +60,7 @@ const Hero = () => {
           <div className="relative max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 h-full flex flex-col justify-center">
             <div className="grid min-[992px]:grid-cols-2 gap-8 lg:gap-10 items-center h-full max-h-[750px] min-[992px]:max-h-none">
               
-              <div className="flex flex-col justify-between items-center min-[992px]:items-start text-center min-[992px]:text-left h-full max-h-[580px] min-[992px]:max-h-[540px] max-w-2xl mx-auto min-[992px]:mx-0 py-2">
+              <div className="flex flex-col justify-between items-center min-[992px]:items-start text-center min-[992px]:text-left h-full max-h-[580px] min-[992px]:max-h-[540px] max-w-2xl mx-auto min-[992px]:mx-0 py-2 gap-2.5 lg:gap-2">
                 
                 <div className="flex flex-col items-center min-[992px]:items-start w-full">
                   <div className="w-full flex justify-center min-[992px]:justify-start mb-6 min-[992px]:mb-4">
