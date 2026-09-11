@@ -2,7 +2,7 @@ import React from 'react';
 
 const SharedBackground = ({ children, className = "" }) => {
   return (
-    <div className={`relative w-full h-full min-h-screen flex flex-col justify-center bg-gradient-to-t from-slate-100 via-blue-50/30 to-white dark:bg-none dark:bg-slate-950 transition-colors duration-300 overflow-hidden ${className}`}>
+    <div className={`relative w-full h-full flex flex-col justify-center bg-gradient-to-t from-slate-100 via-blue-50/30 to-white dark:bg-none dark:bg-slate-950 transition-colors duration-300 overflow-hidden ${className}`}>
       
       {/* Radial Grid Pattern (faded in dark mode) */}
       <div 
@@ -19,8 +19,11 @@ const SharedBackground = ({ children, className = "" }) => {
 
       <div className="absolute inset-0 pointer-events-none backdrop-blur-[2px]"></div>
 
-      {/* Render Page Content */}
-      <div className="relative z-10 w-full h-full flex flex-col justify-center">
+      {/* 
+        IMPORTANT FIX: Added flex-1 here. 
+        This tells the content container to stretch and fill the whole 100dvh background!
+      */}
+      <div className="relative z-10 w-full flex-1 flex flex-col justify-center">
         {children}
       </div>
       

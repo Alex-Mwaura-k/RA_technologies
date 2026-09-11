@@ -25,166 +25,180 @@ const Hero = () => {
   };
 
   return (
-    <SharedBackground className="h-[100dvh] min-h-[600px] 2xl:h-[740px] 2xl:min-h-[740px] 2xl:max-h-[740px]">
-      {/* 
-        Height logic:
-        - Mobile, Tablet & Laptops (< 1536px / 2xl): 100dvh fills full viewport height.
-        - Big Desktop Monitors (>= 1536px / 2xl): Fixed height of 740px.
-      */}
-      <section className="relative w-full h-full flex flex-col justify-center overflow-hidden pb-4 min-[992px]:pt-20 min-[992px]:pb-6">
-        
-        <div className="relative max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 h-full flex flex-col justify-center">
-          <div className="grid min-[992px]:grid-cols-2 gap-8 lg:gap-10 items-center h-full max-h-[750px] min-[992px]:max-h-none">
-            
-            {/* Left Column: Centered on < 992px, Left-aligned on >= 992px */}
-            <div className="flex flex-col justify-between items-center min-[992px]:items-start text-center min-[992px]:text-left h-full max-h-[580px] min-[992px]:max-h-[540px] max-w-2xl mx-auto min-[992px]:mx-0 py-2">
-              
-              <div className="flex flex-col items-center min-[992px]:items-start w-full">
-                {/* Top Banner */}
-                <div className="w-full flex justify-center min-[992px]:justify-start mb-6 min-[992px]:mb-4">
-                  <div className="flex items-center gap-3">
-                    {/* Left Pill */}
-                    <div className="flex -space-x-1.5">
-                      <div className="w-5 h-5 rounded-full bg-[#b2f042]"></div>
-                      <div className="w-5 h-5 rounded-r-full bg-[var(--deep-black)]"></div>
-                    </div>
-                    
-                    <span className="font-bold text-slate-600 tracking-wide text-xs sm:text-sm">
-                      Next-Gen Tech Systems & Academy
-                    </span>
+    <>
+      {/* BULLETPROOF HEIGHT FIX: This guarantees 100dvh on mobile/laptop and 740px on large screens without relying on Tailwind compiler */}
+      <style>
+        {`
+          .hero-container {
+            min-height: 100vh; /* Safe Fallback */
+            min-height: 100dvh;
+          }
+          @media (min-width: 1536px) {
+            .hero-container {
+              min-height: 740px !important;
+              height: 740px !important;
+              max-height: 740px !important;
+            }
+          }
+        `}
+      </style>
 
-                    {/* Right Pill - Symmetry for mobile */}
-                    <div className="flex min-[992px]:hidden">
-                      <div className="w-5 h-5 rounded-l-full bg-[var(--deep-black)]"></div>
-                      <div className="w-5 h-5 rounded-r-full bg-[#b2f042]"></div>
+      <SharedBackground className="hero-container">
+        <section className="relative w-full h-full flex flex-col justify-center overflow-hidden pt-16 pb-4 min-[992px]:pt-20 min-[992px]:pb-6">
+          
+          <div className="relative max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 h-full flex flex-col justify-center">
+            <div className="grid min-[992px]:grid-cols-2 gap-8 lg:gap-10 items-center h-full max-h-[750px] min-[992px]:max-h-none">
+              
+              {/* Left Column: Centered on < 992px, Left-aligned on >= 992px */}
+              <div className="flex flex-col justify-between items-center min-[992px]:items-start text-center min-[992px]:text-left h-full max-h-[580px] min-[992px]:max-h-[540px] max-w-2xl mx-auto min-[992px]:mx-0 py-2">
+                
+                <div className="flex flex-col items-center min-[992px]:items-start w-full">
+                  {/* Top Banner */}
+                  <div className="w-full flex justify-center min-[992px]:justify-start mb-6 min-[992px]:mb-4">
+                    <div className="flex items-center gap-3">
+                      {/* Left Pill */}
+                      <div className="flex -space-x-1.5">
+                        <div className="w-5 h-5 rounded-full bg-[#b2f042]"></div>
+                        <div className="w-5 h-5 rounded-r-full bg-[var(--deep-black)]"></div>
+                      </div>
+                      
+                      <span className="font-bold text-slate-600 tracking-wide text-xs sm:text-sm">
+                        Next-Gen Tech Systems & Academy
+                      </span>
+
+                      {/* Right Pill - Symmetry for mobile */}
+                      <div className="flex min-[992px]:hidden">
+                        <div className="w-5 h-5 rounded-l-full bg-[var(--deep-black)]"></div>
+                        <div className="w-5 h-5 rounded-r-full bg-[#b2f042]"></div>
+                      </div>
                     </div>
+                  </div>
+
+                  {/* Main Heading */}
+                  <h1 className="text-center min-[992px]:text-left text-xl min-[375px]:text-2xl sm:text-4xl lg:text-[2.5rem] xl:text-[3rem] font-extrabold tracking-tight text-[var(--deep-black)] leading-[1.2] w-full">
+                    <span className="block min-[992px]:whitespace-nowrap">
+                      <CascadeText text="Architecting Enterprise Code." delay={300} speed={25} />
+                    </span>
+                    <span className="block min-[992px]:whitespace-nowrap text-[var(--dark-blue)]">
+                      <CascadeText text="Training Tech Pioneers." delay={1200} speed={25} />
+                    </span>
+                  </h1>
+                </div>
+
+                {/* Tag Badges Container */}
+                <div className="flex flex-col items-center min-[992px]:items-start gap-2.5 lg:gap-3 py-3 lg:py-4 border-y border-slate-200/80 w-full lg:w-[92%] bg-white/40 backdrop-blur-sm px-3 lg:px-4 rounded-2xl my-3 lg:my-auto">
+                  <span className="text-xs font-bold text-slate-400 uppercase tracking-widest text-center min-[992px]:text-left">
+                    Technology that Scales Business
+                  </span>
+                  <div className="flex flex-wrap justify-center min-[992px]:justify-start gap-2 lg:gap-2">
+                    {['Cloud Architecture', 'Software Development', 'Bug Bounty', 'Enterprise Security', 'Data Analytics', 'DevOps'].map((tech) => (
+                      <span 
+                        key={tech} 
+                        className="px-3 py-1 bg-white text-slate-700 rounded-full text-[10px] sm:text-xs font-semibold border border-slate-200/80 shadow-sm transition-colors hover:border-[var(--tech-blue)] cursor-default"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </div>
 
-                {/* Main Heading */}
-                <h1 className="text-center min-[992px]:text-left text-xl min-[375px]:text-2xl sm:text-4xl lg:text-[2.5rem] xl:text-[3rem] font-extrabold tracking-tight text-[var(--deep-black)] leading-[1.2] w-full">
-                  <span className="block min-[992px]:whitespace-nowrap">
-                    <CascadeText text="Architecting Enterprise Code." delay={300} speed={25} />
-                  </span>
-                  <span className="block min-[992px]:whitespace-nowrap text-[var(--dark-blue)]">
-                    <CascadeText text="Training Tech Pioneers." delay={1200} speed={25} />
-                  </span>
-                </h1>
-              </div>
+                {/* Description & CTAs */}
+                <div className="flex flex-col items-center min-[992px]:items-start w-full">
+                  <p className="text-sm sm:text-base lg:text-base xl:text-lg text-slate-600 my-2 max-w-2xl leading-relaxed text-center min-[992px]:text-left">
+                    RA technologies builds robust, high-performance SaaS platforms for modern organizations, 
+                    while empowering students with elite engineering tracks in Cloud, Security, and Development. 
+                  </p>
 
-              {/* Tag Badges Container */}
-              <div className="flex flex-col items-center min-[992px]:items-start gap-2.5 lg:gap-3 py-3 lg:py-4 border-y border-slate-200/80 w-full lg:w-[92%] bg-white/40 backdrop-blur-sm px-3 lg:px-4 rounded-2xl my-3 lg:my-auto">
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest text-center min-[992px]:text-left">
-                  Technology that Scales Business
-                </span>
-                <div className="flex flex-wrap justify-center min-[992px]:justify-start gap-2 lg:gap-2">
-                  {['Cloud Architecture', 'Software Development', 'Bug Bounty', 'Enterprise Security', 'Data Analytics', 'DevOps'].map((tech) => (
-                    <span 
-                      key={tech} 
-                      className="px-3 py-1 bg-white text-slate-700 rounded-full text-[10px] sm:text-xs font-semibold border border-slate-200/80 shadow-sm transition-colors hover:border-[var(--tech-blue)] cursor-default"
+                  <div className="flex flex-col sm:flex-row items-center justify-center min-[992px]:justify-start mt-5 sm:mt-6 min-[992px]:mt-6 gap-4 w-full sm:w-auto">
+                    <Link 
+                      to="/solutions" 
+                      className="inline-flex items-center justify-center gap-2 bg-[var(--dark-blue)] hover:bg-[var(--deep-black)] text-[var(--pure-white)] font-semibold px-8 py-3.5 rounded-full text-base transition-colors duration-300 shadow-lg shadow-blue-900/10 w-full sm:w-auto"
                     >
-                      {tech}
-                    </span>
-                  ))}
+                      Deploy Solutions
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </Link>
+                    <Link 
+                      to="/academy" 
+                      className="inline-flex items-center justify-center bg-white/80 backdrop-blur-sm border border-slate-300 hover:border-[var(--tech-blue)] text-slate-800 hover:text-[var(--tech-blue)] font-semibold px-8 py-3.5 rounded-full text-base transition-colors duration-300 shadow-sm w-full sm:w-auto"
+                    >
+                      Explore Academy
+                    </Link>
+                  </div>
                 </div>
+
               </div>
 
-              {/* Description & CTAs */}
-              <div className="flex flex-col items-center min-[992px]:items-start w-full">
-                <p className="text-sm sm:text-base lg:text-base xl:text-lg text-slate-600 my-2 max-w-2xl leading-relaxed text-center min-[992px]:text-left">
-                  RA technologies builds robust, high-performance SaaS platforms for modern organizations, 
-                  while empowering students with elite engineering tracks in Cloud, Security, and Development. 
-                </p>
+              {/* Right Image Grid Section - Hidden on screens < 992px */}
+              <div className="relative w-full h-full max-h-[500px] lg:max-h-[520px] hidden min-[992px]:block self-center aspect-[4/3] lg:aspect-auto">
+                
+                <div 
+                  onMouseEnter={() => setHoveredIndex(0)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  className="absolute top-0 right-0 w-[63%] h-[48%] bg-slate-200 rounded-[2rem] rounded-bl-[4rem] overflow-hidden shadow-2xl border-4 border-white cursor-pointer"
+                >
+                  <img 
+                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                    alt="Team collaborating" 
+                    className={`w-full h-full object-cover transition-all duration-500 ease-in-out ${isColor(0) ? 'grayscale-0 contrast-105' : 'grayscale'} ${hoveredIndex === 0 ? 'scale-105' : ''}`} 
+                  />
+                </div>
 
-                <div className="flex flex-col sm:flex-row items-center justify-center min-[992px]:justify-start mt-5 sm:mt-6 min-[992px]:mt-6 gap-4 w-full sm:w-auto">
-                  <Link 
-                    to="/solutions" 
-                    className="inline-flex items-center justify-center gap-2 bg-[var(--dark-blue)] hover:bg-[var(--deep-black)] text-[var(--pure-white)] font-semibold px-8 py-3.5 rounded-full text-base transition-colors duration-300 shadow-lg shadow-blue-900/10 w-full sm:w-auto"
-                  >
-                    Deploy Solutions
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                <div 
+                  onMouseEnter={() => setHoveredIndex(1)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  className="absolute bottom-0 right-0 w-[63%] h-[48%] bg-slate-200 rounded-[2rem] rounded-tl-[3rem] overflow-hidden shadow-2xl border-4 border-white cursor-pointer"
+                >
+                  <img 
+                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                    alt="Development" 
+                    className={`w-full h-full object-cover transition-all duration-500 ease-in-out ${isColor(1) ? 'grayscale-0 contrast-105' : 'grayscale'} ${hoveredIndex === 1 ? 'scale-105' : ''}`} 
+                  />
+                </div>
+
+                <div 
+                  onMouseEnter={() => setHoveredIndex(2)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  className="absolute bottom-[18%] left-[5%] w-[45%] h-[43%] bg-slate-200 rounded-[2rem] rounded-tr-[3rem] overflow-hidden shadow-2xl border-4 border-white z-10 cursor-pointer"
+                >
+                  <img 
+                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                    alt="Meeting" 
+                    className={`w-full h-full object-cover transition-all duration-500 ease-in-out ${isColor(2) ? 'grayscale-0 contrast-105' : 'grayscale'} ${hoveredIndex === 2 ? 'scale-105' : ''}`} 
+                  />
+                </div>
+
+                {/* Rotating Circular Badge */}
+                <div className="absolute bottom-[29%] left-0 w-24 sm:w-28 h-24 sm:h-28 bg-[var(--deep-black)] rounded-full z-20 flex items-center justify-center shadow-2xl">
+                  <div className="absolute inset-0 animate-[spin_12s_linear_infinite]">
+                    <svg viewBox="0 0 100 100" className="w-full h-full text-[#b2f042] p-1.5">
+                      <path id="curve" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
+                      <text fill="var(--pure-white)" fontSize="10.5" fontWeight="bold" letterSpacing="1.8">
+                        <textPath href="#curve" startOffset="0%">
+                          EXPLORE ACADEMY • BUILD TECH •
+                        </textPath>
+                      </text>
                     </svg>
-                  </Link>
-                  <Link 
-                    to="/academy" 
-                    className="inline-flex items-center justify-center bg-white/80 backdrop-blur-sm border border-slate-300 hover:border-[var(--tech-blue)] text-slate-800 hover:text-[var(--tech-blue)] font-semibold px-8 py-3.5 rounded-full text-base transition-colors duration-300 shadow-sm w-full sm:w-auto"
-                  >
-                    Explore Academy
-                  </Link>
-                </div>
-              </div>
-
-            </div>
-
-            {/* Right Image Grid Section - Hidden on screens < 992px */}
-            <div className="relative w-full h-full max-h-[500px] lg:max-h-[520px] hidden min-[992px]:block self-center aspect-[4/3] lg:aspect-auto">
-              
-              <div 
-                onMouseEnter={() => setHoveredIndex(0)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                className="absolute top-0 right-0 w-[63%] h-[48%] bg-slate-200 rounded-[2rem] rounded-bl-[4rem] overflow-hidden shadow-2xl border-4 border-white cursor-pointer"
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                  alt="Team collaborating" 
-                  className={`w-full h-full object-cover transition-all duration-500 ease-in-out ${isColor(0) ? 'grayscale-0 contrast-105' : 'grayscale'} ${hoveredIndex === 0 ? 'scale-105' : ''}`} 
-                />
-              </div>
-
-              <div 
-                onMouseEnter={() => setHoveredIndex(1)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                className="absolute bottom-0 right-0 w-[63%] h-[48%] bg-slate-200 rounded-[2rem] rounded-tl-[3rem] overflow-hidden shadow-2xl border-4 border-white cursor-pointer"
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                  alt="Development" 
-                  className={`w-full h-full object-cover transition-all duration-500 ease-in-out ${isColor(1) ? 'grayscale-0 contrast-105' : 'grayscale'} ${hoveredIndex === 1 ? 'scale-105' : ''}`} 
-                />
-              </div>
-
-              <div 
-                onMouseEnter={() => setHoveredIndex(2)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                className="absolute bottom-[18%] left-[5%] w-[45%] h-[43%] bg-slate-200 rounded-[2rem] rounded-tr-[3rem] overflow-hidden shadow-2xl border-4 border-white z-10 cursor-pointer"
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                  alt="Meeting" 
-                  className={`w-full h-full object-cover transition-all duration-500 ease-in-out ${isColor(2) ? 'grayscale-0 contrast-105' : 'grayscale'} ${hoveredIndex === 2 ? 'scale-105' : ''}`} 
-                />
-              </div>
-
-              {/* Rotating Circular Badge */}
-              <div className="absolute bottom-[29%] left-0 w-24 sm:w-28 h-24 sm:h-28 bg-[var(--deep-black)] rounded-full z-20 flex items-center justify-center shadow-2xl">
-                <div className="absolute inset-0 animate-[spin_12s_linear_infinite]">
-                  <svg viewBox="0 0 100 100" className="w-full h-full text-[#b2f042] p-1.5">
-                    <path id="curve" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
-                    <text fill="var(--pure-white)" fontSize="10.5" fontWeight="bold" letterSpacing="1.8">
-                      <textPath href="#curve" startOffset="0%">
-                        EXPLORE ACADEMY • BUILD TECH •
-                      </textPath>
-                    </text>
+                  </div>
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 text-[#b2f042] z-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </div>
-                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-[#b2f042] z-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </div>
 
-              {/* Decorative Pulsing Sparkle */}
-              <div className="absolute bottom-[10%] right-[-2%] w-8 sm:w-10 h-8 sm:h-10 text-[var(--tech-blue)] z-20 animate-pulse">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5z" />
-                </svg>
-              </div>
+                {/* Decorative Pulsing Sparkle */}
+                <div className="absolute bottom-[10%] right-[-2%] w-8 sm:w-10 h-8 sm:h-10 text-[var(--tech-blue)] z-20 animate-pulse">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5z" />
+                  </svg>
+                </div>
 
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-    </SharedBackground>
+        </section>
+      </SharedBackground>
+    </>
   );
 };
 
