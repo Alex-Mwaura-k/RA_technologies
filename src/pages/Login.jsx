@@ -50,7 +50,8 @@ const Login = () => {
 
   return (
     <SharedBackground>
-      <div className="w-full flex items-center justify-center px-4 sm:px-6 lg:px-8">
+      {/* Added min-h-screen and min-h-[100dvh] along with vertical padding (py-12) to ensure full-screen flex centering */}
+      <div className="w-full min-h-screen min-h-[100dvh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
         <div className="max-w-md w-full space-y-5 bg-white/90 backdrop-blur-md p-6 sm:p-8 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-200 max-h-[95vh] overflow-y-auto">
           
           <div className="text-center">
